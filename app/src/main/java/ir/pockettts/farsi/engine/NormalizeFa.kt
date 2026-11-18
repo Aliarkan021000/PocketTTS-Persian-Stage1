@@ -327,8 +327,7 @@ object NormalizeFa {
         val filtered = StringBuilder(text.length)
         for (ch in text) {
             val p = PUNCT_MAP[ch] ?: ch
-            if (p == '
-' || p == '' || p == '	') {
+            if (p == '\n' || p == '\t') {
                 filtered.append(' ')
             } else if (p in ALLOWED) {
                 filtered.append(p)
